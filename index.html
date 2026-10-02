@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Blueprint Handbook — Bulk Carrier 50.000 DWT</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;700&family=IBM+Plex+Sans:wght@400;500&display=swap">
+<style>
+:root{--bg:#0b2545;--bg2:#10305a;--line:#5ec8f2;--dim:#8fb4d4;--ink:#e8f4fc;--acc:#ffd166;--grid:rgba(94,200,242,.12);
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#e9f1f8;--bg2:#d8e6f2;--line:#0b5a8a;--dim:#37607f;--ink:#0b2545;--acc:#a85d00;--grid:rgba(11,90,138,.12)}}
+:root[data-theme="light"]{--bg:#e9f1f8;--bg2:#d8e6f2;--line:#0b5a8a;--dim:#37607f;--ink:#0b2545;--acc:#a85d00;--grid:rgba(11,90,138,.12)}
+:root[data-theme="dark"]{--bg:#0b2545;--bg2:#10305a;--line:#5ec8f2;--dim:#8fb4d4;--ink:#e8f4fc;--acc:#ffd166;--grid:rgba(94,200,242,.12)}
+*{box-sizing:border-box}html{scroll-padding-top:calc(64px + env(safe-area-inset-top,0px));scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 'IBM Plex Sans',system-ui,sans-serif;
+background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:32px 32px}
+h1,h2,h3{font-family:'Barlow Condensed','Arial Narrow',sans-serif;font-weight:700;line-height:1.1;margin:0}
+a{color:var(--line)}
+nav{position:sticky;top:0;z-index:20;background:var(--bg2);border-bottom:1px solid var(--line);display:flex;gap:4px;align-items:center;padding:8px 14px;overflow-x:auto;white-space:nowrap}
+nav b{font-family:'Barlow Condensed',sans-serif;font-size:20px;margin-right:12px;color:var(--acc)}
+nav a,nav button{color:var(--ink);text-decoration:none;background:none;border:1px solid transparent;font:inherit;font-size:14px;padding:6px 12px;cursor:pointer;border-radius:2px}
+nav a:hover,nav button:hover{border-color:var(--line)}
+nav .sp{flex:1}
+:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+main{max-width:1080px;margin:0 auto;padding:0 18px 60px}
+section{padding:44px 0 8px}
+h2{font-size:34px;margin-bottom:6px}.sub{color:var(--dim);max-width:62ch;margin:0 0 20px}
+.hero h1{font-size:clamp(40px,8vw,76px);margin-top:36px}
+.hero p{max-width:60ch;color:var(--dim)}
+.hero .credit{color:var(--ink);border-left:3px solid var(--acc);padding-left:12px;margin:14px 0}
+.ship{width:100%;border:1px solid var(--line);background:var(--bg2);margin-top:18px}
+.zone{cursor:pointer}.zone path,.zone rect,.zone polygon{fill:rgba(94,200,242,.08);stroke:var(--line);stroke-width:1.5;transition:fill .15s}
+.zone:hover path,.zone:hover rect,.zone:hover polygon,.zone:focus-visible path,.zone:focus-visible rect,.zone:focus-visible polygon{fill:rgba(255,209,102,.3)}
+.zone text,.lbl{fill:var(--ink);font:12px 'IBM Plex Sans',sans-serif;pointer-events:none}
+.hull{fill:none;stroke:var(--line);stroke-width:2}
+.spec{cursor:default}.spec b{font:700 30px/1.1 'Barlow Condensed',sans-serif;color:var(--acc);display:block}.spec:hover{border-color:var(--line)}
+.hint{color:var(--dim);font-size:14px;margin:8px 0 0}
+.flow{display:flex;flex-wrap:wrap;gap:6px;margin:0;padding:0;list-style:none}
+.flow li{border:1px solid var(--line);padding:6px 12px;font-family:'Barlow Condensed',sans-serif;font-size:18px;background:var(--bg2)}
+.flow li:not(:last-child)::after{content:"›";margin-left:12px;color:var(--acc)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.card{background:var(--bg2);border:1px solid var(--line);padding:16px;text-align:left;color:var(--ink);font:inherit;cursor:pointer;border-radius:2px}
+.card:hover{border-color:var(--acc)}.card h3{font-size:24px;margin-bottom:4px}.card span{color:var(--dim);font-size:14px;display:block}
+input[type=search]{width:100%;padding:12px 14px;font:inherit;background:var(--bg2);color:var(--ink);border:1px solid var(--line);border-radius:2px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chip{border:1px solid var(--line);background:var(--bg);color:var(--ink);padding:5px 12px;font:inherit;font-size:14px;cursor:pointer;border-radius:2px}
+.chip small{color:var(--dim)}.chip:hover{border-color:var(--acc)}
+ol.path{counter-reset:s;list-style:none;padding:0;margin:0;border-left:2px solid var(--line);margin-left:12px}
+ol.path li{counter-increment:s;padding:0 0 18px 28px;position:relative}
+ol.path li::before{content:counter(s);position:absolute;left:-15px;top:0;width:28px;height:28px;background:var(--bg);border:2px solid var(--line);border-radius:50%;text-align:center;font:700 15px/24px 'Barlow Condensed',sans-serif;color:var(--acc)}
+ol.path b{font-family:'Barlow Condensed',sans-serif;font-size:20px}
+.tpl{border:1px dashed var(--line);padding:16px;background:var(--bg2)}
+.tpl dt{font-family:'Barlow Condensed',sans-serif;font-size:19px;color:var(--acc);margin-top:10px}.tpl dd{margin:0;color:var(--dim)}
+dialog{border:2px solid var(--line);background:var(--bg);color:var(--ink);padding:0;max-width:min(620px,94vw);width:100%;max-height:88vh;overflow:auto;border-radius:2px}
+dialog::backdrop{background:rgba(3,12,26,.7)}
+.mh{display:flex;justify-content:space-between;gap:12px;align-items:start;padding:18px 20px 8px}.mh h3{font-size:30px}
+.x{background:none;border:1px solid var(--line);color:var(--ink);width:36px;height:36px;font-size:20px;cursor:pointer;flex:none}
+.mb{padding:0 20px 20px}.mb h4{font-family:'Barlow Condensed',sans-serif;font-size:19px;margin:16px 0 6px;color:var(--acc)}
+.mb p{margin:0 0 8px;color:var(--dim)}
+.links{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.links a{border:1px solid var(--line);padding:9px 12px;text-decoration:none;color:var(--ink);font-size:14px;background:var(--bg2)}
+.links a:hover{border-color:var(--acc);color:var(--acc)}
+.items{display:flex;flex-direction:column;gap:6px}
+.items button{text-align:left;background:var(--bg2);border:1px solid var(--line);color:var(--ink);padding:9px 12px;font:inherit;font-size:15px;cursor:pointer}
+.items button:hover{border-color:var(--acc)}.items button small{display:block;color:var(--dim)}
+.back{background:none;border:none;color:var(--line);font:inherit;cursor:pointer;padding:0 0 6px;text-decoration:underline}
+footer{color:var(--dim);font-size:13px;padding:20px 0}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<nav>
+<b>BLUEPRINT</b>
+<a href="#kapal">Kapal</a><a href="#spek">Spesifikasi</a><a href="#sistem">Sistem</a><a href="#finder">Equipment Finder</a><a href="#belajar">Learning Path</a><a href="#card">Equipment Card</a>
+<span class="sp"></span>
+<button id="gs" type="button">Cari di internet</button>
+</nav>
+<main>
+<section class="hero" id="kapal">
+<h1>Blueprint Handbook<br>Bulk Carrier 50.000 DWT</h1>
+<p class="credit">Website pembelajaran dibuat oleh <strong>Rafael Sukirno, CE</strong><br>untuk Poltekpel Pelayaran Surabaya &amp; UHT</p>
+<p>Kapal dipelajari sebagai satu sistem terpadu, bukan electrical, mechanical, hydraulic, dan pneumatic yang terpisah. Klik bagian kapal atau equipment mana pun untuk membuka penjelasan dan tautan pencarian.</p>
+<svg class="ship" viewBox="0 0 900 270" role="img" aria-label="General arrangement bulk carrier 50.000 DWT">
+<path class="hull" d="M14 150 L58 206 H810 L866 150 Z"/>
+<path class="hull" d="M14 150 H866" stroke-dasharray="6 4" opacity=".5"/>
+<g class="zone" data-sys="deck" tabindex="0" role="button" aria-label="Forecastle, windlass dan mooring"><polygon points="16,150 16,118 96,118 96,150"/><text x="24" y="138">Forecastle</text></g>
+<g class="zone" data-sys="deck" tabindex="0" role="button" aria-label="Cargo hold 1 sampai 5, hatch cover dan crane">
+<rect x="104" y="130" width="92" height="20"/><rect x="198" y="130" width="92" height="20"/><rect x="292" y="130" width="92" height="20"/><rect x="386" y="130" width="92" height="20"/><rect x="480" y="130" width="92" height="20"/>
+<text x="124" y="144">Hold 1</text><text x="218" y="144">Hold 2</text><text x="312" y="144">Hold 3</text><text x="406" y="144">Hold 4</text><text x="500" y="144">Hold 5</text>
+<rect x="148" y="78" width="7" height="52"/><rect x="242" y="78" width="7" height="52"/><rect x="336" y="78" width="7" height="52"/><rect x="430" y="78" width="7" height="52"/>
+<path d="M152 80 L110 104 M246 80 L204 104 M340 80 L298 104 M434 80 L392 104" fill="none"/>
+<text x="130" y="70">Crane 1</text><text x="224" y="70">Crane 2</text><text x="318" y="70">Crane 3</text><text x="412" y="70">Crane 4</text></g>
+<g class="zone" data-sys="elx" tabindex="0" role="button" aria-label="Bridge, navigasi dan automasi"><rect x="660" y="34" width="130" height="38"/><text x="682" y="58">Wheelhouse</text></g>
+<g class="zone" data-sys="lsa" tabindex="0" role="button" aria-label="Akomodasi, lifeboat dan liferaft"><rect x="660" y="72" width="130" height="78"/><text x="694" y="100">Akomodasi</text><text x="676" y="118">Lifeboat · Liferaft</text></g>
+<g class="zone" data-sys="elec" tabindex="0" role="button" aria-label="Kamar mesin, generator dan switchboard"><rect x="580" y="150" width="280" height="56"/><text x="620" y="174">Engine room · MSB · Genset</text><text x="620" y="192">Main engine · Pompa · Steering gear</text></g>
+<g class="zone" data-sys="pneu" tabindex="0" role="button" aria-label="Tangki ballast dan bahan bakar"><rect x="104" y="156" width="468" height="44"/><text x="200" y="182">Ballast tank · Bilge · Fuel tank</text></g>
+<text class="lbl" x="24" y="250">Aft di kanan, forward di kiri. Skema ilustrasi pembelajaran, bukan gambar kerja class.</text>
+</svg>
+<p class="hint">Tip: tekan Tab lalu Enter untuk membuka zona dengan keyboard.</p>
+</section>
+
+<section>
+<h2>Satu alur sistem</h2>
+<p class="sub">Urutan yang dipakai untuk membaca setiap equipment di kapal.</p>
+<ul class="flow"><li>Energy</li><li>Power</li><li>Control</li><li>Actuator / Load</li><li>Feedback</li><li>Protection</li><li>Alarm / Trip</li><li>Maintenance</li><li>Troubleshooting</li></ul>
+</section>
+
+<section id="spek">
+<h2>Particulars tipikal 50.000 DWT</h2>
+<p class="sub">Kapal kelas Handymax / Supramax. Angka berikut hanya gambaran umum untuk pembelajaran dan berbeda untuk setiap desain.</p>
+<div class="grid">
+<div class="card spec"><b>±190 m</b><span>Panjang keseluruhan (LOA)</span></div>
+<div class="card spec"><b>±32 m</b><span>Lebar (beam)</span></div>
+<div class="card spec"><b>±12–13 m</b><span>Sarat maksimum (draft)</span></div>
+<div class="card spec"><b>5 palka</b><span>Cargo hold dengan hatch cover hidrolik</span></div>
+<div class="card spec"><b>4 × 30 t</b><span>Deck crane untuk grab atau hook</span></div>
+<div class="card spec"><b>±8–9 MW</b><span>Main engine diesel 2-tak, ±14 knot</span></div>
+<div class="card spec"><b>3 genset</b><span>Diesel generator ±500–700 kW, plus emergency generator</span></div>
+<div class="card spec"><b>±20–25 kru</b><span>Awak kapal dalam akomodasi di buritan</span></div>
+</div>
+<p class="hint"><button class="chip" type="button" id="specq">Cari "Supramax bulk carrier 50000 DWT" di internet</button></p>
+</section>
+
+<section id="sistem">
+<h2>Sistem kapal</h2>
+<p class="sub">Pilih sistem untuk melihat daftar equipment. Setiap equipment punya popup dengan tautan ke Google, Pinterest, Wikipedia, YouTube, dan IMO.</p>
+<div class="grid" id="sysgrid"></div>
+</section>
+
+<section id="finder">
+<h2>Equipment Finder</h2>
+<p class="sub">Ketik nama equipment atau sistem, misalnya "AVR", "windlass", atau "hydraulic".</p>
+<input type="search" id="q" placeholder="Cari equipment…" aria-label="Cari equipment">
+<div class="chips" id="res"></div>
+</section>
+
+<section id="belajar">
+<h2>Learning Path</h2>
+<p class="sub">Dari pengenalan kapal sampai troubleshooting.</p>
+<ol class="path">
+<li><b>Ship familiarization</b><br>Kenali kapal 50.000 DWT: zona, ruangan, jalur evakuasi, dan fungsi tiap area pada General Arrangement.</li>
+<li><b>Power generation dan distribusi</b><br>Generator, AVR, MSB, ACB, busbar, dan emergency power.</li>
+<li><b>Mesin dan auxiliary</b><br>Main engine, pompa, kompresor, purifier, dan sistem pendingin.</li>
+<li><b>Hydraulic dan pneumatic</b><br>Tekanan kerja, valve, actuator, dan sistem udara kontrol.</li>
+<li><b>Kontrol, alarm, dan automasi</b><br>Sensor, PLC, alarm, trip, dan feedback loop.</li>
+<li><b>Deck machinery dan keselamatan</b><br>Crane, hatch, windlass, mooring, LSA, dan FFA.</li>
+<li><b>Maintenance dan troubleshooting</b><br>Planned maintenance, diagnosa gejala, dan pencarian akar masalah.</li>
+</ol>
+</section>
+
+<section id="card">
+<h2>Equipment Card</h2>
+<p class="sub">Template untuk mengembangkan setiap equipment menjadi materi lengkap. Popup equipment memakai struktur yang sama.</p>
+<dl class="tpl">
+<dt>Fungsi</dt><dd>Apa tugas equipment dalam sistem kapal.</dd>
+<dt>Input dan output</dt><dd>Energi, sinyal, atau fluida yang masuk dan keluar.</dd>
+<dt>Kontrol dan proteksi</dt><dd>Siapa yang mengendalikan, dan apa yang melindungi.</dd>
+<dt>Pemeriksaan rutin</dt><dd>Hal yang dicek saat watch dan maintenance.</dd>
+<dt>Gejala gangguan</dt><dd>Tanda kerusakan dan arah troubleshooting.</dd>
+</dl>
+</section>
+<footer>Dibuat oleh Rafael Sukirno, CE untuk Poltekpel Pelayaran Surabaya &amp; UHT.<br>Materi pembelajaran umum. Selalu ikuti manual pabrikan, SOLAS, dan prosedur kapal yang berlaku.</footer>
+</main>
+
+<dialog id="dlg" aria-labelledby="dt"><div class="mh"><h3 id="dt"></h3><button class="x" type="button" id="cl" aria-label="Tutup">×</button></div><div class="mb" id="db"></div></dialog>
+
+<script>
+var S=[
+{id:"elec",t:"Electrical",d:"Pembangkit dan distribusi daya kapal.",i:[
+["Main generator (diesel genset)","Mengubah putaran diesel menjadi listrik 3 fase.","Bahan bakar → listrik","Cek tekanan oli, suhu, tegangan, frekuensi."],
+["PMG (permanent magnet generator)","Sumber daya awal untuk AVR agar generator stabil.","Magnet → daya ke AVR","Cek tegangan output dan isolasi."],
+["AVR (automatic voltage regulator)","Menjaga tegangan generator dengan mengatur arus eksiter.","Feedback tegangan → arus eksiter","Cek setting tegangan dan koneksi sensing."],
+["Exciter","Memberi arus medan ke rotor generator.","Arus DC → medan rotor","Cek dioda berputar dan isolasi."],
+["MSB (main switchboard)","Panel pusat pembagi daya ke seluruh kapal.","Genset → busbar → feeder","Cek suhu panel, alarm, dan indikator."],
+["ACB (air circuit breaker)","Pemutus utama dengan proteksi overload dan short circuit.","Daya masuk/keluar busbar","Cek trip setting dan mekanisme."],
+["Busbar","Rel tembaga penghubung genset dan feeder.","Titik kumpul daya","Cek kekencangan dan panas berlebih."],
+["Emergency generator","Daya darurat saat blackout.","Auto start → ESB","Tes start berkala dan cek bahan bakar."],["Shaft generator / PTO","Generator yang digerakkan main engine saat berlayar untuk hemat bahan bakar.","Poros engine → listrik","Cek sinkronisasi dan beban."],
+["Emergency switchboard (ESB)","Panel daya darurat untuk beban vital saat blackout.","Emergency gen → beban vital","Tes auto start dan transfer."],
+["Transformer 440/230 V","Menurunkan tegangan untuk penerangan dan beban kecil.","440 V → 230 V","Cek suhu dan isolasi."]]},
+{id:"mech",t:"Mechanical",d:"Mesin penggerak dan auxiliary.",i:[
+["Main engine","Penggerak utama kapal.","Bahan bakar → daya poros","Cek suhu gas buang, tekanan oli, getaran."],
+["Propeller shaft dan stern tube","Meneruskan daya ke baling-baling dan menjaga kedap air.","Torsi → thrust","Cek suhu bearing dan kebocoran seal."],
+["Sea water cooling pump","Mensirkulasikan air laut pendingin.","Pompa → cooler","Cek tekanan dan strainer."],
+["Fuel oil purifier","Memisahkan air dan kotoran dari bahan bakar.","Bahan bakar kotor → bersih","Cek sludge dan alarm."],
+["Air compressor","Menghasilkan udara tekan untuk start dan kontrol.","Listrik → udara tekan","Cek oli, tekanan, dan drain."],["Steering gear","Menggerakkan rudder lewat sistem hidrolik dan dua pompa.","Perintah kemudi → sudut rudder","Tes dari bridge dan emergency steering."],
+["Turbocharger","Memanfaatkan gas buang untuk menambah udara bilas engine.","Gas buang → udara bilas","Cek getaran dan suhu gas buang."],
+["Oily water separator (OWS) 15 ppm","Memisahkan minyak dari air bilge sebelum dibuang.","Bilge water → air bersih","Cek alarm 15 ppm dan catatan Oil Record Book."],
+["Ballast water treatment system","Mengolah air ballast sesuai konvensi IMO BWM.","Air ballast → air olahan","Cek filter, UV atau elektroklorinasi."],
+["Auxiliary boiler dan economizer","Menghasilkan uap untuk pemanas bahan bakar dan akomodasi.","Panas → uap","Cek level air dan flame failure."]]},
+{id:"hyd",t:"Hydraulic",d:"Tenaga fluida untuk deck machinery.",i:[
+["Hydraulic power pack","Pompa, tangki, dan filter penyedia tekanan hidrolik.","Motor → tekanan oli","Cek level oli, filter, suhu."],
+["Hydraulic motor dan cylinder","Mengubah tekanan oli jadi gerak putar atau linier.","Tekanan → gerak","Cek kebocoran dan seal."],
+["Directional control valve","Mengatur arah aliran oli ke actuator.","Sinyal → arah aliran","Cek solenoid dan spool."],
+["Relief valve","Membatasi tekanan maksimum sistem.","Tekanan lebih → bypass","Cek setting tekanan."]]},
+{id:"pneu",t:"Pneumatic",d:"Udara tekan untuk start, kontrol, dan layanan.",i:[
+["Starting air receiver","Tangki udara untuk start main engine.","Udara tekan tersimpan","Cek tekanan dan drain air."],
+["Control air system","Udara bersih kering untuk instrumen dan valve.","Dryer → instrumen","Cek dew point dan filter."],
+["Pneumatic valve actuator","Menggerakkan valve dengan udara tekan.","Udara → gerak valve","Cek solenoid dan limit switch."],
+["Bilge dan ballast pump system","Mengatur air ballast dan bilge kapal.","Pompa → tangki","Cek valve dan sensor level."]]},
+{id:"act",t:"Actuator dan Control",d:"Elemen yang menggerakkan dan mengendalikan proses.",i:[
+["Solenoid valve","Katup listrik untuk membuka atau menutup aliran.","Sinyal listrik → aliran","Cek koil dan tegangan."],
+["Electric motor starter (DOL / star-delta)","Menjalankan motor dengan proteksi.","MCC → motor","Cek kontaktor dan overload relay."],
+["VFD (variable frequency drive)","Mengatur kecepatan motor.","Frekuensi → rpm","Cek alarm drive dan pendinginan."],
+["Governor","Menjaga putaran mesin tetap stabil.","Feedback rpm → bahan bakar","Cek setting dan respon beban."]]},
+{id:"elx",t:"Electronic dan Navigasi",d:"Instrumen navigasi, komunikasi, dan automasi.",i:[
+["Radar dan ARPA","Mendeteksi objek dan menghitung risiko tabrakan.","Gema radar → tampilan","Cek gain, tune, dan heading."],
+["ECDIS","Peta elektronik navigasi.","Posisi GPS → peta","Cek update chart dan sensor."],
+["GPS dan AIS","Posisi kapal dan identifikasi lalu lintas.","Satelit → posisi","Cek antena dan data."],
+["Gyro compass","Menunjukkan arah utara sejati.","Rotasi bumi → heading","Cek error dan repeater."],
+["Alarm monitoring system (AMS)","Memantau parameter mesin dan memberi alarm.","Sensor → alarm","Cek sensor dan test alarm."],
+["PLC","Pengendali logika otomatis.","Input → logika → output","Cek I/O dan program."]]},
+{id:"lsa",t:"LSA dan FFA",d:"Keselamatan jiwa dan pemadam kebakaran.",i:[
+["Lifeboat dan davit","Sarana evakuasi utama.","Turun ke air","Tes engine dan release gear."],
+["Liferaft dan HRU","Rakit penolong dengan pelepas hidrostatik.","Terapung otomatis","Cek tanggal servis dan HRU."],
+["Fire pump dan hydrant","Suplai air pemadam.","Pompa → hydrant","Cek tekanan dan nozzle."],
+["CO2 fixed system","Pemadam kamar mesin dengan gas CO2.","Tabung → ruang","Cek tabung dan alarm pra-pelepasan."],
+["Fire detection system","Mendeteksi asap dan panas.","Detektor → panel","Test detektor berkala."],
+["EPIRB dan SART","Pemancar darurat posisi.","Aktif → sinyal SAR","Cek baterai dan tanggal."]]},
+{id:"deck",t:"Deck Machinery",d:"Crane, hatch, windlass, mooring, dan capstan.",i:[
+["Deck crane 30 t","Memuat dan membongkar muatan curah dengan grab atau hook.","Hidrolik → angkat","Cek wire, limit switch, SWL."],
+["Hatch cover","Penutup palka kedap cuaca.","Hidrolik → buka/tutup","Cek packing dan roller."],
+["Windlass","Menarik dan menurunkan jangkar.","Motor → rantai jangkar","Cek brake dan gypsy."],
+["Mooring winch","Mengatur tali tambat.","Motor → tali","Cek brake dan rope."],
+["Capstan","Menarik tali tambat secara vertikal.","Motor → drum","Cek brake dan kontrol."],["Ballast system dan tank sounding","Mengisi dan mengosongkan tangki ballast untuk trim, stabilitas, dan draft.","Pompa dan valve → tangki","Cek level, valve remote, dan alarm."],
+["Cargo hold bilge dan sounding","Mengeringkan palka dan memantau air dalam palka.","Bilge well → pompa","Cek bilge well dan non-return valve."],
+["Anchor dan rantai jangkar","Menahan kapal di lokasi labuh.","Windlass → jangkar","Cek shackle, stopper, dan panjang rantai."]]}
+];
+var $=function(i){return document.getElementById(i)},dlg=$("dlg"),dt=$("dt"),db=$("db"),last=null;
+function esc(s){var d=document.createElement("div");d.textContent=s;return d.innerHTML}
+function links(q){var e=encodeURIComponent(q);var L=[["Google","https://www.google.com/search?q="+e],["Google Images","https://www.google.com/search?tbm=isch&q="+e],["Pinterest","https://www.pinterest.com/search/pins/?q="+e],["Wikipedia","https://en.wikipedia.org/w/index.php?search="+e],["YouTube","https://www.youtube.com/results?search_query="+e],["IMO (via Google)","https://www.google.com/search?q=site%3Aimo.org+"+e]];
+return '<div class="links">'+L.map(function(x){return '<a href="'+x[1]+'" target="_blank" rel="noopener noreferrer">'+x[0]+'</a>'}).join("")+'</div>'}
+function open_(){if(!dlg.open){last=document.activeElement;dlg.showModal()}dlg.scrollTop=0}
+function showSys(id){var s=S.find(function(x){return x.id===id});dt.textContent=s.t;
+db.innerHTML='<p>'+esc(s.d)+'</p><h4>Equipment</h4><div class="items">'+s.i.map(function(e,n){return '<button type="button" data-s="'+id+'" data-n="'+n+'">'+esc(e[0])+'<small>'+esc(e[1])+'</small></button>'}).join("")+'</div><h4>Cari sistem ini di internet</h4>'+links(s.t+" ship system marine");open_()}
+function showEq(id,n){var s=S.find(function(x){return x.id===id}),e=s.i[n];dt.textContent=e[0];
+db.innerHTML='<button class="back" type="button" data-sys="'+id+'">Kembali ke '+esc(s.t)+'</button><h4>Fungsi</h4><p>'+esc(e[1])+'</p><h4>Alur energi / sinyal</h4><p>'+esc(e[2])+'</p><h4>Pemeriksaan rutin</h4><p>'+esc(e[3])+'</p><h4>Pelajari lebih lanjut</h4>'+links(e[0]+" marine ship");open_()}
+function showSearch(){dt.textContent="Cari di internet";db.innerHTML='<p>Ketik topik, lalu pilih mesin pencari.</p><input type="search" id="gq" placeholder="Contoh: ship generator AVR" aria-label="Kata kunci"><div id="gl"></div>';
+var g=$("gq"),l=$("gl");function u(){l.innerHTML=g.value.trim()?links(g.value.trim()):""}g.oninput=u;open_();g.focus()}
+$("sysgrid").innerHTML=S.map(function(s){return '<button class="card" type="button" data-sys="'+s.id+'"><h3>'+esc(s.t)+'</h3><span>'+esc(s.d)+'</span><span>'+s.i.length+' equipment</span></button>'}).join("");
+function find(){var v=$("q").value.trim().toLowerCase(),o=[];S.forEach(function(s){s.i.forEach(function(e,n){if(!v||(e[0]+" "+s.t+" "+e[1]).toLowerCase().indexOf(v)>-1)o.push('<button class="chip" type="button" data-s="'+s.id+'" data-n="'+n+'">'+esc(e[0])+' <small>'+esc(s.t)+'</small></button>')})});
+$("res").innerHTML=o.length?o.join(""):'<p class="hint">Tidak ada hasil. Coba kata lain, atau gunakan tombol "Cari di internet" di navbar.</p>'}
+$("q").oninput=find;find();
+document.addEventListener("click",function(ev){var t=ev.target.closest("[data-sys],[data-n],.zone");if(!t)return;
+if(t.classList.contains("zone"))return showSys(t.dataset.sys);if(t.dataset.n!==undefined)return showEq(t.dataset.s,+t.dataset.n);showSys(t.dataset.sys)});
+document.querySelectorAll(".zone").forEach(function(z){z.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();showSys(z.dataset.sys)}})});
+$("gs").onclick=showSearch;$("specq").onclick=function(){dt.textContent="Supramax 50.000 DWT";db.innerHTML="<p>Cari referensi kapal bulk carrier 50.000 DWT.</p>"+links("Supramax bulk carrier 50000 DWT general arrangement");open_()};$("cl").onclick=function(){dlg.close()};
+dlg.addEventListener("click",function(e){if(e.target===dlg)dlg.close()});
+dlg.addEventListener("close",function(){if(last&&last.focus)last.focus()});
+</script>
+</body>
+</html>
